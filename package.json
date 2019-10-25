@@ -1,0 +1,20 @@
+{
+  "name": "dom-apis-typed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.html",
+  "scripts": {
+    "start": "npx http-server",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LironHazan/dom-apis-typed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LironHazan/dom-apis-typed/issues"
+  },
+  "homepage": "https://github.com/LironHazan/dom-apis-typed#readme"
+}
