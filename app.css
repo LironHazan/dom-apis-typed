@@ -1,0 +1,21 @@
+h1, h2 {
+    font-family: Lato;
+}
+.resizable-box {
+    height: fit-content;
+    max-width: fit-content;
+    transform: rotate(10deg);
+    max-height: 230px;
+    background: green;
+    border: 2px solid;
+    padding: 20px;
+    resize: both;
+    overflow: auto;
+    position: absolute;
+    left: 30px;
+    top: 45px;
+}
+
+.container {
+
+}
