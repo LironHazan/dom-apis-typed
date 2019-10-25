@@ -21,8 +21,8 @@ const run = () => {
         appRef: HTMLElement;
         counter: HTMLElement;
         resizeObserver: any;
-        mutationObserver: any;
-        intersectionObserver: any;
+        mutationObserver: MutationObserver | any;
+        intersectionObserver: IntersectionObserver | any;
 
         constructor() {
             this.COLORS = Utils.getColors();
@@ -57,8 +57,8 @@ const run = () => {
             });
 
             // MUTATION OBSERVER - increase counter when the style changed!!
-            let times;
-            this.mutationObserver = new MutationObserver((entries) => {
+            let times: number;
+            this.mutationObserver = new MutationObserver((entries: MutationRecord[]) => {
                 for (let entry of entries) {
                     times = Number(this.counter.textContent) + 1;
                     this.counter.textContent = `${times}`;
@@ -66,7 +66,7 @@ const run = () => {
             });
 
             // INTERSECTION OBSERVER - unobserve the other observers when target isn't in viewport!!
-            this.intersectionObserver = new IntersectionObserver((entries) => {
+            this.intersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
                 for (let entry of entries) {
                     if (entry.intersectionRatio !== 0) {
                         this.startWatching(this.appRef);
@@ -93,11 +93,11 @@ const run = () => {
             this.intersectionObserver.unobserve(this.appRef);
         }
         stop() {
-            this.intersectionObserver.disconnect(this.appRef);
+            this.intersectionObserver.disconnect();
         }
     }
 
-    const app = new MyAppSpace();
+    const app: MyAppSpace = new MyAppSpace();
     app.start();
 };
 
