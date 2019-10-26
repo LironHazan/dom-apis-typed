@@ -2,7 +2,7 @@
   "name": "dom-apis-typed",
   "version": "1.0.0",
   "description": "",
-  "main": "app.html",
+  "main": "index.html",
   "scripts": {
     "start": "npx http-server",
     "build": "tsc"

@@ -2,7 +2,7 @@
 type Payload = {msg: string, data: {[key: string]: any}};
 
 
-const MESSANGER = class Messenger {
+export class Messenger {
 
     static baseClass() {
         return class {
