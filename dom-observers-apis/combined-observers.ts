@@ -82,21 +82,3 @@ export class MyAppSpace {
     }
 }
 
-// PERFORMANCE OBSERVER - doesn't play well here on stackblitz
-const observer = new PerformanceObserver((list) => {
-    for (const entry of list.getEntries()) {
-        // `name` will be either 'first-paint' or 'first-contentful-paint'.
-        const metricName = entry.name;
-        const time = Math.round(entry.startTime + entry.duration);
-
-        console.table({
-            eventCategory: 'Performance Metrics',
-            eventAction: metricName,
-            eventValue: time,
-            nonInteraction: true,
-        });
-    }
-});
-// Start observing paint entries.
-observer.observe({entryTypes: ['paint']});
-
