@@ -1,35 +1,25 @@
 import { Utils } from '../utils/utils.js'; //TS wont support "mjs" yet
 
-export class MyAppSpace {
+export class WebObserversExample {
     COLORS: any;
-    template: string;
-    appRef: HTMLElement;
+    boxRef: HTMLElement;
     counter: HTMLElement;
     resizeObserver: any;
     mutationObserver: MutationObserver | any;
     intersectionObserver: IntersectionObserver | any;
 
-    constructor() {
+    constructor(boxRef: HTMLElement, counter: HTMLElement) {
         this.COLORS = Utils.getColors();
-        this.template = MyAppSpace.initTemplate();
-        this.appRef = <HTMLElement> (document.querySelector('#app'));
-        MyAppSpace.attachTemplate(this.appRef, this.template);
-        this.counter = <HTMLElement> (document.querySelector('.counter'));
-
+        this.boxRef = boxRef;
+        this.counter = counter;
+        this.setBoxRefStyle();
         // Watchers
         this.setObservers();
     }
 
-    static initTemplate(): string {
-        // View box
-        return `<h1>Resize me to see what happens!</h1>
-            <div> counter: <span class="counter"> 0 </span> </div>`;
-    }
-
-    static attachTemplate(appRef: HTMLElement, template: string) {
-        appRef.innerHTML = template;
-        appRef.style.width = '60%';
-        appRef.classList.add('resizable-box');
+    setBoxRefStyle() {
+        this.boxRef.style.width = '60%';
+        this.boxRef.classList.add('resizable-box');
     }
 
     setObservers(){
@@ -54,9 +44,9 @@ export class MyAppSpace {
         this.intersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
             for (let entry of entries) {
                 if (entry.intersectionRatio !== 0) {
-                    this.startWatching(this.appRef);
+                    this.startWatching(this.boxRef);
                 } else {
-                    this.cleanupWatchers(this.appRef);
+                    this.cleanupWatchers(this.boxRef);
                 }
             }
         });
@@ -71,13 +61,13 @@ export class MyAppSpace {
         this.mutationObserver.disconnect();
     };
 
-    start() {
-        this.intersectionObserver.observe(this.appRef);
+    startObserving() {
+        this.intersectionObserver.observe(this.boxRef);
     }
-    pause() {
-        this.intersectionObserver.unobserve(this.appRef);
+    pauseObserving() {
+        this.intersectionObserver.unobserve(this.boxRef);
     }
-    stop() {
+    killObserver() {
         this.intersectionObserver.disconnect();
     }
 }
