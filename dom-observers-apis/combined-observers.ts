@@ -19,7 +19,10 @@ export class WebObserversExample {
 
     setBoxRefStyle() {
         this.boxRef.style.width = '60%';
-        this.boxRef.classList.add('resizable-box');
+        // I don't have where to clean it..
+        requestAnimationFrame(() => {
+            this.boxRef.classList.toggle('resizable-box');
+        })
     }
 
     setObservers(){
