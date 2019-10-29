@@ -10,10 +10,14 @@ const bootstrap = () => {
                 const boxRef = <HTMLElement> (document.querySelector('#box'));
                 const counterRef = <HTMLElement> (document.querySelector('.counter'));
                 const animBox = <HTMLElement>(document.querySelector('.anim-box'));
+                const animBtn = <HTMLElement>(document.querySelector('.mbtn'));
 
                 const observersExample = new WebObserversExample(boxRef, counterRef);
                 const animRef = new WebAnimationInUse(animBox);
-                // animRef;
+
+                animBtn.addEventListener('click', () => {
+                    animRef.toggleAnimation()
+                });
 
                 observersExample.startObserving();
 
