@@ -1,15 +1,23 @@
-const bootstrap = async () => {
 
-        const  { WebObserversExample } = await import('./dom-observers-apis/combined-observers.js');
-        // DOM REFS:
+const bootstrap = () => {
 
-        const boxRef = <HTMLElement> (document.querySelector('#box'));
-        const counterRef = <HTMLElement> (document.querySelector('.counter'));
+        return Promise.all([
+                import('./dom-observers-apis/combined-observers.js'),
+                import ('./web-animations/web-anim-example.js'),
+        ]).then(([ { WebObserversExample }, { WebAnimationInUse }]) => {
 
-        const app = new WebObserversExample(boxRef, counterRef);
-        app.startObserving();
-        return app;
+                // DOM REFS:
+                const boxRef = <HTMLElement> (document.querySelector('#box'));
+                const counterRef = <HTMLElement> (document.querySelector('.counter'));
+                const animBox = <HTMLElement>(document.querySelector('.anim-box'));
 
+                const observersExample = new WebObserversExample(boxRef, counterRef);
+                const animRef = new WebAnimationInUse(animBox);
+                // animRef;
+
+                observersExample.startObserving();
+
+            });
 };
 
 
