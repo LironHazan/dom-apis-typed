@@ -13,6 +13,25 @@ h1, h2 {
     font-family: Lato;
 }
 
+.app .marker {
+    width: 0;
+    height: 3px;
+    background-color: #7e4aac;
+    margin-top: 6px;
+
+    width: auto;
+    animation: .25s itemStretch;
+}
+
+@keyframes itemStretch {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
 .app {
     display: flex;
     justify-content: space-around;

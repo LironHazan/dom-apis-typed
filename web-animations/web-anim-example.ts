@@ -7,6 +7,12 @@ export class WebAnimationInUse {
         this.el = animElementRef;
         this.animRef = this.animate();
         this.isOn = true;
+
+        // similar to directive
+        const refs: any = document.querySelectorAll('[data-micro-interact]');
+        for (let ref of refs) {
+            console.log(ref.dataset.microInteract);
+        }
     }
 
     private animate(): Animation {
