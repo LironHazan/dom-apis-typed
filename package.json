@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "npx http-server",
+    "start": "tsc && npx http-server",
     "build": "tsc"
   },
   "repository": {
