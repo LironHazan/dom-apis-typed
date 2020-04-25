@@ -43,3 +43,7 @@ h1, h2 {
     width: fit-content;
     background: purple;
 }
+
+.p-bg {
+    background-image: paint(my-painting);
+}

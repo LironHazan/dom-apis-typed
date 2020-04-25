@@ -1,5 +1,6 @@
 
 const bootstrap = () => {
+        import('./hudini-paint/painting.js');
 
         return Promise.all([
                 import('./dom-observers-apis/combined-observers.js'),

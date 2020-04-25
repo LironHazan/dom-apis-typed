@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/LironHazan/dom-apis-typed/issues"
   },
-  "homepage": "https://github.com/LironHazan/dom-apis-typed#readme"
+  "homepage": "https://github.com/LironHazan/dom-apis-typed#readme",
+  "dependencies": {}
 }

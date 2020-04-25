@@ -8,7 +8,7 @@
 <header class="l-header">
     <div> link 1</div>
 </header>
-<div class="app">
+<div class="app p-bg">
     <button class="mbtn"> Toggle Animation </button>
     <div class="container">
         <div id="box">
@@ -21,6 +21,7 @@
     </div>
 </div>
 <script type="module" src="./dist/index.js"></script>
+<script src="https://unpkg.com/css-paint-polyfill/dist/css-paint-polyfill.js"></script>
 <script>
     // PERFORMANCE OBSERVER - doesn't play well here on stackblitz
     const observer = new PerformanceObserver((list) => {
